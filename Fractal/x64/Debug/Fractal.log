@@ -1,0 +1,10 @@
+﻿  stdafx.cpp
+  ZoomList.cpp
+  Mandelbrot.cpp
+  Main.cpp
+e:\programming repository\c++advanced_udemy\githubrepositories\fractalproject\fractal\main.cpp(7): warning C4103: alignment changed after including header, may be due to missing #pragma pack(pop)
+e:\programming repository\c++advanced_udemy\githubrepositories\fractalproject\fractal\main.cpp(77): warning C4244: 'initializing': conversion from 'double' to 'uint8_t', possible loss of data
+  Bitmap.cpp
+e:\programming repository\c++advanced_udemy\githubrepositories\fractalproject\fractal\bitmap.cpp(4): warning C4103: alignment changed after including header, may be due to missing #pragma pack(pop)
+  Generating Code...
+  Fractal.vcxproj -> E:\Programming Repository\C++Advanced_Udemy\GitHubRepositories\FractalProject\x64\Debug\Fractal.exe
