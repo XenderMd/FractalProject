@@ -22,8 +22,14 @@ namespace caveofprogramming
 		unique_ptr<int[]>m_fractal;
 		Bitmap m_bitmap;
 		ZoomList m_zoomList;
-	
 
+		vector<int> m_ranges;
+		vector<RGB> m_colors;
+		vector<int> m_rangeTotals;
+
+		bool m_bGotFirstRange{ false };
+	
+		void calculateRangeTotals();
 		void calculateIterations();
 		void drawFractal();
 		void writeBitmap(std::string name);
@@ -33,6 +39,7 @@ namespace caveofprogramming
 		
 		FractalCreator(int width, int height);
 		void addZoom(const Zoom &zoom);
+		void addRange(double rangeEnd, const RGB &rgb);
 		~FractalCreator();
 
 		void runfractalcreator(string name);

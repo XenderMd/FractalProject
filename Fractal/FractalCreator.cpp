@@ -15,6 +15,24 @@ caveofprogramming::FractalCreator::~FractalCreator()
 {
 }
 
+void caveofprogramming::FractalCreator::calculateRangeTotals()
+{
+	int rangeIndex = 0;
+	int overalltotal = 0;
+
+	for (int i = 0; i < Mandelbrot::MAX_ITERATIONS; i++)
+	{
+		int pixels = m_histogram[i];
+
+		if (i >= m_ranges[rangeIndex + 1])
+		{
+			rangeIndex++;
+		}
+
+		m_rangeTotals[rangeIndex] += pixels;
+	}
+}
+
 void caveofprogramming::FractalCreator::calculateIterations()
 {
 	std::cout << "Calculating iterations ..." << std::endl;
@@ -43,7 +61,7 @@ void caveofprogramming::FractalCreator::drawFractal()
 	std::cout << "Drawing the fractal ..." << std::endl;
 
 	RGB startColor(0, 0, 0);
-	RGB endColor(150, 255, 30);
+	RGB endColor(0, 255, 0);
 	RGB coloDiff = endColor - startColor;
 
 	int total=0;
@@ -84,6 +102,17 @@ void caveofprogramming::FractalCreator::addZoom(const Zoom & zoom)
 	m_zoomList.add(zoom);
 }
 
+void caveofprogramming::FractalCreator::addRange(double rangeEnd, const RGB & rgb)
+{
+	m_ranges.push_back(rangeEnd*Mandelbrot::MAX_ITERATIONS);
+	m_colors.push_back(rgb);
+	if (m_bGotFirstRange)
+	{
+		m_rangeTotals.push_back(0);
+	}
+	m_bGotFirstRange = true;
+}
+
 void caveofprogramming::FractalCreator::writeBitmap(std::string name)
 {
 	std::cout << "Writing the bitmap ..." << std::endl;
@@ -94,6 +123,8 @@ void caveofprogramming::FractalCreator::runfractalcreator(string name)
 {
 	
 	calculateIterations();
+
+	calculateRangeTotals();
 
 	drawFractal();
 

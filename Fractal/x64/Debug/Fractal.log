@@ -1,8 +1,6 @@
-﻿  ZoomList.cpp
-  Main.cpp
-  FractalCreator.cpp
-e:\programming repository\c++advanced_udemy\githubrepositories\fractal\fractalproject\fractal\fractalcreator.cpp(74): warning C4244: '=': conversion from 'double' to 'uint8_t', possible loss of data
-e:\programming repository\c++advanced_udemy\githubrepositories\fractal\fractalproject\fractal\fractalcreator.cpp(75): warning C4244: '=': conversion from 'double' to 'uint8_t', possible loss of data
-e:\programming repository\c++advanced_udemy\githubrepositories\fractal\fractalproject\fractal\fractalcreator.cpp(76): warning C4244: '=': conversion from 'double' to 'uint8_t', possible loss of data
-  Generating Code...
+﻿  FractalCreator.cpp
+e:\programming repository\c++advanced_udemy\githubrepositories\fractal\fractalproject\fractal\fractalcreator.cpp(101): warning C4244: '=': conversion from 'double' to 'uint8_t', possible loss of data
+e:\programming repository\c++advanced_udemy\githubrepositories\fractal\fractalproject\fractal\fractalcreator.cpp(102): warning C4244: '=': conversion from 'double' to 'uint8_t', possible loss of data
+e:\programming repository\c++advanced_udemy\githubrepositories\fractal\fractalproject\fractal\fractalcreator.cpp(103): warning C4244: '=': conversion from 'double' to 'uint8_t', possible loss of data
+e:\programming repository\c++advanced_udemy\githubrepositories\fractal\fractalproject\fractal\fractalcreator.cpp(116): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
   Fractal.vcxproj -> E:\Programming Repository\C++Advanced_Udemy\GitHubRepositories\Fractal\FractalProject\x64\Debug\Fractal.exe
