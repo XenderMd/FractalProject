@@ -2,7 +2,6 @@
 #include "Zoom.h"
 #include <vector>
 #include <utility>
-#include<iostream>
 
 namespace caveofprogramming
 {

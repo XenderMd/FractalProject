@@ -1,4 +1,8 @@
-﻿  Main.cpp
-e:\programming repository\c++advanced_udemy\githubrepositories\fractal\fractalproject\fractal\main.cpp(7): warning C4103: alignment changed after including header, may be due to missing #pragma pack(pop)
-e:\programming repository\c++advanced_udemy\githubrepositories\fractal\fractalproject\fractal\main.cpp(86): warning C4244: '=': conversion from 'double' to 'uint8_t', possible loss of data
+﻿  FractalCreator.cpp
+e:\programming repository\c++advanced_udemy\githubrepositories\fractal\fractalproject\fractal\fractalcreator.cpp(70): warning C4244: '=': conversion from 'double' to 'uint8_t', possible loss of data
+  Generating Code...
+  Compiling...
+  ZoomList.cpp
+  Main.cpp
+  Generating Code...
   Fractal.vcxproj -> E:\Programming Repository\C++Advanced_Udemy\GitHubRepositories\Fractal\FractalProject\x64\Debug\Fractal.exe
