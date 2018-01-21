@@ -33,6 +33,8 @@ namespace caveofprogramming
 		void calculateIterations();
 		void drawFractal();
 		void writeBitmap(std::string name);
+		int getRange(int iterations) const;
+		
 
 
 	public:

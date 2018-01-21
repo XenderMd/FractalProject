@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "FractalCreator.h"
+#include <assert.h>
 
 using namespace caveofprogramming;
 
@@ -60,10 +61,6 @@ void caveofprogramming::FractalCreator::drawFractal()
 {
 	std::cout << "Drawing the fractal ..." << std::endl;
 
-	RGB startColor(0, 0, 0);
-	RGB endColor(0, 255, 0);
-	RGB coloDiff = endColor - startColor;
-
 	int total=0;
 
 	for (int i = 0; i<Mandelbrot::MAX_ITERATIONS; i++)
@@ -74,25 +71,36 @@ void caveofprogramming::FractalCreator::drawFractal()
 	for (int y = 0; y < m_height; y++)
 		for (int x = 0; x < m_width; x++)
 		{
+			
 			uint8_t red = 0;
 			uint8_t green = 0;
 			uint8_t blue = 0;
 
 			int iterations = m_fractal[y*m_width + x];
 
+			int range = getRange(iterations);
+
+			int rangeTotal = m_rangeTotals[range];
+
+			int rangeStart = m_ranges[range];
+
+			RGB &startColor = m_colors[range];
+			RGB &endColor = m_colors[range+1];
+			RGB colorDiff = endColor - startColor;
+
 			uint8_t color = (uint8_t)(256 * (double)iterations / Mandelbrot::MAX_ITERATIONS);
 
-			double hue = 0.0;
+			int totalPixels = 0;
 
-			for (int i = 0; i <= iterations; i++)
+			for (int i = rangeStart; i <= iterations; i++)
 			{
-				hue += ((double)m_histogram[i]) / total;
+				totalPixels += m_histogram[i];
 			}
 
-			red = startColor.red + coloDiff.red*hue;
-			green = startColor.green + coloDiff.green*hue;
-			blue = startColor.blue + coloDiff.blue*hue;
-
+			red = startColor.red + colorDiff.red*(double)totalPixels/rangeTotal;
+			green = startColor.green + colorDiff.green*(double)totalPixels / rangeTotal;
+			blue = startColor.blue + colorDiff.blue*(double)totalPixels / rangeTotal;
+		
 			m_bitmap.setPixel(x, y, red, green, blue);
 		}
 }
@@ -117,6 +125,25 @@ void caveofprogramming::FractalCreator::writeBitmap(std::string name)
 {
 	std::cout << "Writing the bitmap ..." << std::endl;
 	m_bitmap.write(name);
+}
+
+int caveofprogramming::FractalCreator::getRange(int iterations) const
+{
+	int range = 0;
+
+	for (int i = 1; i < m_ranges.size(); i++)
+	{
+		range = i;
+		if (m_ranges[i] > iterations)
+			break;
+	}
+	
+	range--;
+
+	assert(range > -1);
+	assert(range < m_ranges.size());
+
+	return range;
 }
 
 void caveofprogramming::FractalCreator::runfractalcreator(string name)
