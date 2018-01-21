@@ -42,6 +42,10 @@ void caveofprogramming::FractalCreator::drawFractal()
 {
 	std::cout << "Drawing the fractal ..." << std::endl;
 
+	RGB startColor(0, 0, 0);
+	RGB endColor(150, 255, 30);
+	RGB coloDiff = endColor - startColor;
+
 	int total=0;
 
 	for (int i = 0; i<Mandelbrot::MAX_ITERATIONS; i++)
@@ -67,7 +71,9 @@ void caveofprogramming::FractalCreator::drawFractal()
 				hue += ((double)m_histogram[i]) / total;
 			}
 
-			green = pow((double)255, hue);
+			red = startColor.red + coloDiff.red*hue;
+			green = startColor.green + coloDiff.green*hue;
+			blue = startColor.blue + coloDiff.blue*hue;
 
 			m_bitmap.setPixel(x, y, red, green, blue);
 		}
@@ -82,4 +88,14 @@ void caveofprogramming::FractalCreator::writeBitmap(std::string name)
 {
 	std::cout << "Writing the bitmap ..." << std::endl;
 	m_bitmap.write(name);
+}
+
+void caveofprogramming::FractalCreator::runfractalcreator(string name)
+{
+	
+	calculateIterations();
+
+	drawFractal();
+
+	writeBitmap(name);
 }

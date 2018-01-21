@@ -148,6 +148,7 @@
     <ClInclude Include="BitmapInfoHeader.h" />
     <ClInclude Include="FractalCreator.h" />
     <ClInclude Include="Mandelbrot.h" />
+    <ClInclude Include="RGB.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Zoom.h" />
@@ -158,6 +159,7 @@
     <ClCompile Include="FractalCreator.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Mandelbrot.cpp" />
+    <ClCompile Include="RGB.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
