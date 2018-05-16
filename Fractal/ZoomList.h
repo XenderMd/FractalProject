@@ -14,7 +14,7 @@ namespace caveofprogramming
 		double m_scale{1.0};
 		int m_width{ 0 };
 		int m_height{ 0 };
-		std::vector <Zoom> zooms;
+		//std::vector <Zoom> zooms;
 
 	public:
 
