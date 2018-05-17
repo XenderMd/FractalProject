@@ -100,7 +100,7 @@ void caveofprogramming::FractalCreator::drawFractal()
 			red = startColor.red + colorDiff.red*(double)totalPixels/rangeTotal;
 			green = startColor.green + colorDiff.green*(double)totalPixels / rangeTotal;
 			blue = startColor.blue + colorDiff.blue*(double)totalPixels / rangeTotal;
-		
+		//
 			m_bitmap.setPixel(x, y, red, green, blue);
 		}
 }
