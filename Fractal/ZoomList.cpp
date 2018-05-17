@@ -14,6 +14,7 @@ void ZoomList::add(const Zoom & zoom)
 	//zooms.push_back(zoom);
 	
 	m_xCenter += (zoom.x - m_width / 2)*m_scale;
+	
 	m_yCenter += -(zoom.y - m_height / 2)*m_scale;
 
 	m_scale *= zoom.scale;
@@ -24,13 +25,13 @@ void ZoomList::add(const Zoom & zoom)
 
 std::pair<double, double> caveofprogramming::ZoomList::doZoom(int x, int y)
 {
-	double xFractal = (x - m_width / 2)*m_scale + m_xCenter;
+	double xFractal = m_xCenter + (x - m_width / 2)*m_scale;
 
 	//std::cout << xFractal<<" ";
 
 	//if (x == (m_width - 1)) { std::cout << std::endl; }
 	
-	double yFractal = (y - m_height / 2)*m_scale + m_yCenter;
+	double yFractal = m_yCenter + (y - m_height / 2)*m_scale;
 	
 	return std::pair<double, double>(xFractal,yFractal);
 }
