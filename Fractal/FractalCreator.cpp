@@ -88,7 +88,7 @@ void caveofprogramming::FractalCreator::drawFractal()
 			RGB &endColor = m_colors[range+1];
 			RGB colorDiff = endColor - startColor;
 
-			uint8_t color = (uint8_t)(256 * (double)iterations / Mandelbrot::MAX_ITERATIONS);
+			//uint8_t color = (uint8_t)(256 * (double)iterations / Mandelbrot::MAX_ITERATIONS);
 
 			int totalPixels = 0;
 
@@ -108,6 +108,7 @@ void caveofprogramming::FractalCreator::drawFractal()
 void caveofprogramming::FractalCreator::addZoom(const Zoom & zoom)
 {
 	m_zoomList.add(zoom);
+
 }
 
 void caveofprogramming::FractalCreator::addRange(double rangeEnd, const RGB & rgb)
@@ -119,6 +120,43 @@ void caveofprogramming::FractalCreator::addRange(double rangeEnd, const RGB & rg
 		m_rangeTotals.push_back(0);
 	}
 	m_bGotFirstRange = true;
+}
+
+void caveofprogramming::FractalCreator::SetZooms()
+{
+	std::cout <<"Setting zooms..."<<std::endl;
+
+	addZoom(Zoom(295,  202, 0.1));
+
+	addZoom(Zoom(304,  304, 0.1));
+
+	addZoom(Zoom(200, 200, 0.1));
+
+	addZoom(Zoom(200, 200, 0.1));
+
+	addZoom(Zoom(100, 100, 0.1));
+
+	addZoom(Zoom(100, 100, 0.1));
+
+	addZoom(Zoom(700, 500, 0.1));
+
+}
+
+void caveofprogramming::FractalCreator::SetColorRanges()
+{
+	std::cout << "Setting color ranges..." << std::endl;
+
+	addRange(0.0, RGB(0, 0, 0));
+
+	addRange(0.1, RGB(0, 255, 0));
+
+	addRange(0.3, RGB(0, 128, 0));
+
+	addRange(0.4, RGB(0, 64, 0));
+
+	addRange(0.6, RGB(0, 32, 0));
+
+	addRange(1.0, RGB(0, 16, 0));
 }
 
 void caveofprogramming::FractalCreator::writeBitmap(std::string name)

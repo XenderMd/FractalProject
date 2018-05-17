@@ -42,6 +42,8 @@ namespace caveofprogramming
 		FractalCreator(int width, int height);
 		void addZoom(const Zoom &zoom);
 		void addRange(double rangeEnd, const RGB &rgb);
+		void SetZooms();
+		void SetColorRanges();
 		~FractalCreator();
 
 		void runfractalcreator(string name);
